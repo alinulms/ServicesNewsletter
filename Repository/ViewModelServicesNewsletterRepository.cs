@@ -8,32 +8,51 @@ namespace Sitecore.Feature.ServicesNewsletter.Repository
 {
     public class ViewModelServicesNewsletterRepository : ViewModelRepository
     {
-     
         private readonly ServicesNewsletterOptionsRepository _servicesNewsletterOptionsRepository;
-
-        public ViewModelServicesNewsletterRepository() : this(new ServicesNewsletterOptionsRepository()) {​​        }​​
-
-
-        public ViewModelServicesNewsletterRepository(ServicesNewsletterOptionsRepository servicesNewsletterOptionsRepository)
-        {
-            Assert.ArgumentNotNull(servicesNewsletterOptionsRepository, "servicesNewsletterOptionsRepository"); 
-            this._servicesNewsletterOptionsRepository = servicesNewsletterOptionsRepository;
-        }​​
         
+        public ViewModelServicesNewsletterRepository() : this(new ServicesNewsletterOptionsRepository()) { }
+
+        public ViewModelServicesNewsletterRepository(
+            ServicesNewsletterOptionsRepository servicesNewsletterOptionsRepository)
+        {
+            Assert.ArgumentNotNull(servicesNewsletterOptionsRepository, "servicesNewsletterOptionsRepository");
+            this._servicesNewsletterOptionsRepository = servicesNewsletterOptionsRepository;
+        }
+
         public SectionViewModel GetImageBlockWithTextViewModel(Rendering rendering)
         {
             Assert.ArgumentNotNull(rendering, "rendering");
             if (!rendering.Item.IsDerived(Templates.ImageBlockWithText.ID))
             {
                 return null;
-            }​​       
-            
-            return new SectionViewModel
+            }
+
+            return new SectionViewModel()
             {
-                ContentItem = rendering.Item, 
-                NewsletterOptions = this._servicesNewsletterOptionsRepository.Get(rendering.Item), 
-                SectionOptions = ServicesSectionOptionsRepository.Get(rendering.RenderingItem.InnerItem["Parameters"])
-            }​​;
+                ContentItem = rendering.Item,
+                NewsletterOptions = this._servicesNewsletterOptionsRepository.Get(rendering.Item),
+                SectionOptions =
+                    ServicesSectionOptionsRepository.Get(rendering.RenderingItem.InnerItem["Parameters"])
+            };
         }
+        //    public SectionViewModel GetImageBlockWithTextViewModel(Rendering rendering)
+        //    {
+        //        Assert.ArgumentNotNull(rendering, "rendering");
+        //        if (!rendering.Item.IsDerived(Templates.ImageBlockWithText.ID))
+        //        {
+        //            return null;
+        //        }​​       
+
+        //        return new SectionViewModel
+        //        {
+        //            ContentItem = rendering.Item, 
+        //            NewsletterOptions = this._servicesNewsletterOptionsRepository.Get(rendering.Item), 
+        //            SectionOptions = ServicesSectionOptionsRepository.Get(rendering.RenderingItem.InnerItem["Parameters"])
+        //        }​​;
+        //    }
     }
+
+
+
+    //}
 }

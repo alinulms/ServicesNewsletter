@@ -7,7 +7,6 @@ using Sitecore.Mvc.Presentation;
 
 namespace Sitecore.Feature.ServicesNewsletter.Controllers
 {
-	
 	public class ServicesNewsletterController : Controller
 	{
 		private readonly ViewModelServicesNewsletterRepository _repository;
