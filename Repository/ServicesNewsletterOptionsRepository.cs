@@ -10,15 +10,15 @@ using Sitecore.EmailCampaign.SampleNewsletter.Services;
 namespace Sitecore.Feature.ServicesNewsletter.Repository
 {
 
-	public class ServiceNewsletterOptionsRepository
+	public class ServicesNewsletterOptionsRepository
 	{
 		
-		public ServiceNewsletterOptionsRepository() : this(new FindNewsletterRootService())
+		public ServicesNewsletterOptionsRepository() : this(new FindNewsletterRootService())
 		{
 		}
 
 		
-		public ServiceNewsletterOptionsRepository(FindNewsletterRootService findNewsletterRootService)
+		public ServicesNewsletterOptionsRepository(FindNewsletterRootService findNewsletterRootService)
 		{
 			Assert.ArgumentNotNull(findNewsletterRootService, "findNewsletterRootService");
 			this._findNewsletterRootService = findNewsletterRootService;
@@ -29,26 +29,26 @@ namespace Sitecore.Feature.ServicesNewsletter.Repository
 		{
 			Assert.ArgumentNotNull(contextItem, "contextItem");
 			Item newsletterRoot = this._findNewsletterRootService.FindNewsletterRoot(contextItem);
-			Item item = newsletterRoot.Children.FirstOrDefault((Item c) => c.IsDerived(Templates.NewsletterOptions.ID));
+			Item item = newsletterRoot.Children.FirstOrDefault((Item c) => c.IsDerived(Sitecore.EmailCampaign.SampleNewsletter.Templates.NewsletterOptions.ID));
 			bool flag = item == null;
 			if (flag)
 			{
 				throw new ArgumentException("Cannot find EmailOptionsRepository below '" + newsletterRoot.Paths.FullPath + "'");
 			}
 			int result;
-			bool flag2 = !int.TryParse(item[Templates.NewsletterOptions.Fields.MaxWidth], out result);
+			bool flag2 = !int.TryParse(item[Sitecore.EmailCampaign.SampleNewsletter.Templates.NewsletterOptions.Fields.MaxWidth], out result);
 			if (flag2)
 			{
 				result = 800;
 			}
 			return new NewsletterOptions
 			{
-				ContentFontSize = item[Templates.NewsletterOptions.Fields.ContentFontSize],
-				FontFamily = item[Templates.NewsletterOptions.Fields.FontFamily],
-				HeadingFontSize = item[Templates.NewsletterOptions.Fields.HeadingFontSize],
+				ContentFontSize = item[Sitecore.EmailCampaign.SampleNewsletter.Templates.NewsletterOptions.Fields.ContentFontSize],
+				FontFamily = item[Sitecore.EmailCampaign.SampleNewsletter.Templates.NewsletterOptions.Fields.FontFamily],
+				HeadingFontSize = item[Sitecore.EmailCampaign.SampleNewsletter.Templates.NewsletterOptions.Fields.HeadingFontSize],
 				MaxWidth = result,
-				BeforeBodyHtml = item[Templates.NewsletterOptions.Fields.BeforeBodyHtml],
-				AfterBodyHtml = item[Templates.NewsletterOptions.Fields.AfterBodyHtml]
+				BeforeBodyHtml = item[Sitecore.EmailCampaign.SampleNewsletter.Templates.NewsletterOptions.Fields.BeforeBodyHtml],
+				AfterBodyHtml = item[Sitecore.EmailCampaign.SampleNewsletter.Templates.NewsletterOptions.Fields.AfterBodyHtml]
 			};
 		}
 

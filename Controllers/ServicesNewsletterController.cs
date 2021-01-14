@@ -13,15 +13,20 @@ namespace Sitecore.Feature.ServicesNewsletter.Controllers
 		private readonly ViewModelServicesNewsletterRepository _repository;
 		public ServicesNewsletterController() : this(new ViewModelServicesNewsletterRepository())
 		{
-			//test
-		}
+        }
 
 		public ServicesNewsletterController(ViewModelServicesNewsletterRepository repository)
 		{
 			Assert.ArgumentNotNull(repository, "repository");
 			this._repository = repository;
 		}
-	
+
+        public ActionResult ImageBlockWithText()
+        {
+            SectionViewModel sectionViewModel = this._repository.GetSectionViewModel(RenderingContext.Current.Rendering);
+            return base.View("~/sitecore modules/web/exm/layouts/ServicesNewsletter/SingleCTASection.cshtml", sectionViewModel);
+        }
+
 		public ActionResult Footer()
 		{
 			SectionViewModel fixedSectionViewModel = this._repository.GetFixedSectionViewModel(RenderingContext.Current.Rendering);
@@ -60,8 +65,7 @@ namespace Sitecore.Feature.ServicesNewsletter.Controllers
 			SectionViewModel sectionViewModel = this._repository.GetSectionViewModel(RenderingContext.Current.Rendering);
 			return base.View("~/sitecore modules/web/exm/layouts/ServicesNewsletter/SingleCTASection.cshtml", sectionViewModel);
 		}
-
-	
+		
 		public ActionResult TwoColumnCtaSection()
 		{
 			ListSectionViewModel listSectionViewModel = this._repository.GetListSectionViewModel(RenderingContext.Current.Rendering);
