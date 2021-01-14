@@ -67,8 +67,5 @@ namespace Sitecore.Feature.ServicesNewsletter.Controllers
 			ListSectionViewModel listSectionViewModel = this._repository.GetListSectionViewModel(RenderingContext.Current.Rendering);
 			return base.View("~/sitecore modules/web/exm/layouts/ServicesNewsletter/TwoColumnCTASection.cshtml", listSectionViewModel);
 		}
-
-		
-		
-	}
+    }
 }
