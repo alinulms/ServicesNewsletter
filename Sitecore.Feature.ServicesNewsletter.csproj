@@ -271,6 +271,7 @@
     <Content Include="sitecore modules\web\exm\layouts\ServicesNewsletter\TwoColumnCTASection.cshtml" />
     <Content Include="sitecore modules\web\exm\layouts\ServicesNewsletter\Web.config" />
     <Content Include="sitecore modules\web\exm\layouts\ServicesNewsletter\ImageBlockWithText.cshtml" />
+    <Content Include="sitecore modules\web\exm\layouts\ServicesNewsletter\Heading.cshtml" />
     <None Include="web.config" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <Content Include="sitecore modules\web\exm\layouts\ServicesNewsletter\Layout.cshtml" />
@@ -281,10 +282,7 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Views\ServicesNewsletter\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

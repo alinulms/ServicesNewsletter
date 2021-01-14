@@ -20,5 +20,15 @@ namespace Sitecore.Feature.ServicesNewsletter
                 public static readonly ID Content = new ID("{F582F380-7B59-4565-BBCA-7C67D475DE0F}");
             }
         }
+        public struct Heading
+        {
+            public static readonly ID ID = new ID("{7F2F706A-8B03-4A0D-BE5E-25E20A1A10B7}");
+
+            public struct Fields
+            {
+                public static readonly ID Title = new ID("{7A26EAFE-59A3-4A9A-9753-A12D49C8D120}");
+           
+            }
+        }
     }
 }
