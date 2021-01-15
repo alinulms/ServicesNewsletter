@@ -35,24 +35,21 @@ namespace Sitecore.Feature.ServicesNewsletter.Repository
                     ServicesSectionOptionsRepository.Get(rendering.RenderingItem.InnerItem["Parameters"])
             };
         }
-        //    public SectionViewModel GetImageBlockWithTextViewModel(Rendering rendering)
-        //    {
-        //        Assert.ArgumentNotNull(rendering, "rendering");
-        //        if (!rendering.Item.IsDerived(Templates.ImageBlockWithText.ID))
-        //        {
-        //            return null;
-        //        }​​       
 
-        //        return new SectionViewModel
-        //        {
-        //            ContentItem = rendering.Item, 
-        //            NewsletterOptions = this._servicesNewsletterOptionsRepository.Get(rendering.Item), 
-        //            SectionOptions = ServicesSectionOptionsRepository.Get(rendering.RenderingItem.InnerItem["Parameters"])
-        //        }​​;
-        //    }
+        public SectionViewModel GetImageBlocSectionViewModel(Rendering rendering)
+        {
+            Assert.ArgumentNotNull(rendering, "rendering");
+            if (!rendering.Item.IsDerived(Templates.ImageBlockWithText.ID))
+            {
+                return null;
+            }
+
+            return new SectionViewModel
+            {
+                ContentItem = rendering.Item,
+                NewsletterOptions = this._servicesNewsletterOptionsRepository.Get(rendering.Item),
+                SectionOptions = ServicesSectionOptionsRepository.Get(rendering.RenderingItem.InnerItem["Parameters"])
+            };
+        }
     }
-
-
-
-    //}
 }

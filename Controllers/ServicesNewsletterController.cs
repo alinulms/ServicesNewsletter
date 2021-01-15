@@ -23,7 +23,7 @@ namespace Sitecore.Feature.ServicesNewsletter.Controllers
         public ActionResult ImageBlockWithText()
         {
             SectionViewModel sectionViewModel = this._repository.GetSectionViewModel(RenderingContext.Current.Rendering);
-            return base.View("~/sitecore modules/web/exm/layouts/ServicesNewsletter/SingleCTASection.cshtml", sectionViewModel);
+            return base.View("~/sitecore modules/web/exm/layouts/ServicesNewsletter/ImageBlockWithText.cshtml", sectionViewModel);
         }
 
 		public ActionResult Footer()
