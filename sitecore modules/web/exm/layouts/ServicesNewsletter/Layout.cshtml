@@ -2,7 +2,7 @@
 @using Sitecore.Feature.ServicesNewsletter.Repository;
 @model RenderingModel
 @{
-    var repository = new ServiceNewsletterOptionsRepository();
+    var repository = new Sitecore.Feature.ServicesNewsletter.Repository.ServicesNewsletterOptionsRepository();
     var options = repository.Get(Model.Item);
 }
     <html xmlns="http://www.w3.org/1999/xhtml">

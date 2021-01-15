@@ -25,6 +25,11 @@ namespace Sitecore.Feature.ServicesNewsletter.Controllers
             SectionViewModel sectionViewModel = this._repository.GetSectionViewModel(RenderingContext.Current.Rendering);
             return base.View("~/sitecore modules/web/exm/layouts/ServicesNewsletter/ImageBlockWithText.cshtml", sectionViewModel);
         }
+		public ActionResult Heading()
+		{
+			SectionViewModel sectionViewModel = this._repository.GetHeading(RenderingContext.Current.Rendering);
+			return base.View("~/sitecore modules/web/exm/layouts/ServicesNewsletter/Heading.cshtml", sectionViewModel);
+		}
 
 		public ActionResult Footer()
 		{
